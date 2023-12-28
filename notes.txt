@@ -1,0 +1,35 @@
+    Import Express.js and Mongoose:
+        const express = require('express');: Imports the Express.js library for building web applications.
+        const mongoose = require('mongoose');: Imports the Mongoose library for MongoDB object modeling.
+
+    Create Express Application Instance:
+        const app = express();: Initializes an instance of the Express application. This app object will be used to configure routes, middleware, and handle HTTP requests.
+
+    Set Up Server:
+        app.listen(8000, () => {...});: Instructs the Express application to listen for incoming requests on port 8000.
+        () => {...}: Defines a callback function that will be executed when the server starts.
+
+    Console Log Message:
+        console.log("Server is running at https://localhost:8000");: Prints a message to the console indicating that the server is successfully running.
+
+    Mongoose Schema Definition:
+        const productSchema = new mongoose.Schema({ ... });: Defines a Mongoose schema for the 'Product' model. A schema is a blueprint for the structure of documents within a MongoDB collection.
+
+    Schema Fields:
+        name: String,: Defines a field named 'name' of type String to store the product name.
+        description: String,: Defines a field named 'description' of type String to store the product description.
+        price: Number: Defines a field named 'price' of type Number to store the product price.
+
+    Create Mongoose Model:
+        const Product = new mongoose.model("Product", productSchema);: Creates a Mongoose model named 'Product' based on the defined schema. The model provides an interface to interact with the MongoDB collection associated with products.
+
+            Import Body-Parser Middleware:
+        const bodyParser = require('body-parser');: Imports the 'body-parser' middleware, which is used to parse the body of incoming HTTP requests.
+
+    URL-encoded Data Parsing:
+        app.use(bodyParser.urlencoded({ extended: false }));: Configures the application to use the 'body-parser' middleware for parsing URL-encoded data.
+        { extended: false }: This option specifies that the parser should use the classic encoding algorithm. When set to false, the values can only be strings or arrays, helping to handle simpler data structures.
+
+    JSON Data Parsing:
+        app.use(express.json());: Configures the application to use the built-in Express middleware for parsing JSON data in the request body.
+        This middleware allows your application to parse JSON-encoded data sent in the request body, making it accessible through req.body in your route handlers.
